@@ -8,7 +8,7 @@
 
 import UIKit
 
-public final class SimpleTable: NSObject {
+public final class TableManager: NSObject {
     
     private let tableView: UITableView
     
@@ -18,7 +18,7 @@ public final class SimpleTable: NSObject {
     
 }
 
-extension SimpleTable: UITableViewDataSource {
+extension TableManager: UITableViewDataSource {
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         0
@@ -31,6 +31,6 @@ extension SimpleTable: UITableViewDataSource {
     
 }
 
-extension SimpleTable: UITableViewDelegate {
+extension TableManager: UITableViewDelegate {
     
 }
