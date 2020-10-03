@@ -16,6 +16,7 @@
 		D6D9A49C2528606C00287C0E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6D9A49A2528606C00287C0E /* Main.storyboard */; };
 		D6D9A49E2528606D00287C0E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D6D9A49D2528606D00287C0E /* Assets.xcassets */; };
 		D6D9A4A12528606D00287C0E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6D9A49F2528606D00287C0E /* LaunchScreen.storyboard */; };
+		D6D9A4A72528624000287C0E /* SimpleTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D9A4A62528624000287C0E /* SimpleTable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +44,7 @@
 		D6D9A49D2528606D00287C0E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D6D9A4A02528606D00287C0E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D6D9A4A22528606D00287C0E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D6D9A4A62528624000287C0E /* SimpleTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleTable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 			children = (
 				D6D9A47725285FCC00287C0E /* SimpleTable.h */,
 				D6D9A47825285FCC00287C0E /* Info.plist */,
+				D6D9A4A62528624000287C0E /* SimpleTable.swift */,
 			);
 			path = SimpleTable;
 			sourceTree = "<group>";
@@ -202,6 +205,7 @@
 				TargetAttributes = {
 					D6D9A47325285FCC00287C0E = {
 						CreatedOnToolsVersion = 11.7;
+						LastSwiftMigration = 1170;
 					};
 					D6D9A47C25285FCC00287C0E = {
 						CreatedOnToolsVersion = 11.7;
@@ -263,6 +267,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6D9A4A72528624000287C0E /* SimpleTable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -437,6 +442,7 @@
 		D6D9A48925285FCC00287C0E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 9DDKGS74BH;
@@ -453,6 +459,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.belov.SimpleTable;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -461,6 +468,7 @@
 		D6D9A48A25285FCC00287C0E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 9DDKGS74BH;
@@ -485,6 +493,7 @@
 		D6D9A48C25285FCC00287C0E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9DDKGS74BH;
 				INFOPLIST_FILE = SimpleTableTests/Info.plist;
@@ -503,6 +512,7 @@
 		D6D9A48D25285FCC00287C0E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9DDKGS74BH;
 				INFOPLIST_FILE = SimpleTableTests/Info.plist;
