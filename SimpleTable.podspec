@@ -15,5 +15,5 @@ This CocoaPods library helps you manage Table View.
   spec.swift_version = "4.2"
 
   spec.source        = { :git => "https://github.com/vladbelov/SimpleTable.git", :tag => "#{spec.version}" }
-  spec.source_files  = "SimpleTable/**/*.{h,m,swift}"
+  spec.source_files  = "SimpleTable/**/*.swift"
 end

@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		D6D9A47E25285FCC00287C0E /* SimpleTable.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6D9A47425285FCC00287C0E /* SimpleTable.framework */; };
 		D6D9A48325285FCC00287C0E /* SimpleTableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D9A48225285FCC00287C0E /* SimpleTableTests.swift */; };
-		D6D9A48525285FCC00287C0E /* SimpleTable.h in Headers */ = {isa = PBXBuildFile; fileRef = D6D9A47725285FCC00287C0E /* SimpleTable.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D6D9A4952528606C00287C0E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D9A4942528606C00287C0E /* AppDelegate.swift */; };
 		D6D9A4972528606C00287C0E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D9A4962528606C00287C0E /* SceneDelegate.swift */; };
 		D6D9A4992528606C00287C0E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D9A4982528606C00287C0E /* ViewController.swift */; };
@@ -17,6 +16,7 @@
 		D6D9A49E2528606D00287C0E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D6D9A49D2528606D00287C0E /* Assets.xcassets */; };
 		D6D9A4A12528606D00287C0E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6D9A49F2528606D00287C0E /* LaunchScreen.storyboard */; };
 		D6D9A4A72528624000287C0E /* TableManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D9A4A62528624000287C0E /* TableManager.swift */; };
+		D6D9A4C92529129700287C0E /* TableManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D9A4A62528624000287C0E /* TableManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,7 +31,6 @@
 
 /* Begin PBXFileReference section */
 		D6D9A47425285FCC00287C0E /* SimpleTable.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SimpleTable.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D6D9A47725285FCC00287C0E /* SimpleTable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SimpleTable.h; sourceTree = "<group>"; };
 		D6D9A47825285FCC00287C0E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D6D9A47D25285FCC00287C0E /* SimpleTableTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SimpleTableTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6D9A48225285FCC00287C0E /* SimpleTableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleTableTests.swift; sourceTree = "<group>"; };
@@ -96,7 +95,6 @@
 		D6D9A47625285FCC00287C0E /* SimpleTable */ = {
 			isa = PBXGroup;
 			children = (
-				D6D9A47725285FCC00287C0E /* SimpleTable.h */,
 				D6D9A47825285FCC00287C0E /* Info.plist */,
 				D6D9A4A62528624000287C0E /* TableManager.swift */,
 			);
@@ -133,7 +131,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D6D9A48525285FCC00287C0E /* SimpleTable.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,6 +280,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6D9A4C92529129700287C0E /* TableManager.swift in Sources */,
 				D6D9A4992528606C00287C0E /* ViewController.swift in Sources */,
 				D6D9A4952528606C00287C0E /* AppDelegate.swift in Sources */,
 				D6D9A4972528606C00287C0E /* SceneDelegate.swift in Sources */,

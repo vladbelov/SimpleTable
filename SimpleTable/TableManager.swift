@@ -8,12 +8,33 @@
 
 import UIKit
 
+public class TableSection: NSObject {
+    
+}
+
+public protocol TableItemProtocol {
+    
+}
+
 public final class TableManager: NSObject {
     
-    private let tableView: UITableView
+    private let defaultSection = TableSection()
     
-    init(tableView: UITableView) {
+    private weak var tableView: UITableView?
+    
+    public init(tableView: UITableView) {
         self.tableView = tableView
+        super.init()
+        
+        setupTableView()
+    }
+    
+    private func setupTableView() {
+        tableView?.tableFooterView = UIView()
+        tableView?.keyboardDismissMode = .onDrag
+        tableView?.separatorStyle = .none
+        tableView?.dataSource = self
+        tableView?.delegate = self
     }
     
 }
