@@ -16,7 +16,7 @@
 		D6D9A49C2528606C00287C0E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6D9A49A2528606C00287C0E /* Main.storyboard */; };
 		D6D9A49E2528606D00287C0E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D6D9A49D2528606D00287C0E /* Assets.xcassets */; };
 		D6D9A4A12528606D00287C0E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6D9A49F2528606D00287C0E /* LaunchScreen.storyboard */; };
-		D6D9A4A72528624000287C0E /* SimpleTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D9A4A62528624000287C0E /* SimpleTable.swift */; };
+		D6D9A4A72528624000287C0E /* TableManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D9A4A62528624000287C0E /* TableManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,7 +44,7 @@
 		D6D9A49D2528606D00287C0E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D6D9A4A02528606D00287C0E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D6D9A4A22528606D00287C0E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D6D9A4A62528624000287C0E /* SimpleTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleTable.swift; sourceTree = "<group>"; };
+		D6D9A4A62528624000287C0E /* TableManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,7 +98,7 @@
 			children = (
 				D6D9A47725285FCC00287C0E /* SimpleTable.h */,
 				D6D9A47825285FCC00287C0E /* Info.plist */,
-				D6D9A4A62528624000287C0E /* SimpleTable.swift */,
+				D6D9A4A62528624000287C0E /* TableManager.swift */,
 			);
 			path = SimpleTable;
 			sourceTree = "<group>";
@@ -267,7 +267,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D6D9A4A72528624000287C0E /* SimpleTable.swift in Sources */,
+				D6D9A4A72528624000287C0E /* TableManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
