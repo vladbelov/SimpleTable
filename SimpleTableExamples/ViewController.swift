@@ -11,11 +11,12 @@ import UIKit
 class ViewController: UIViewController {
     
     private let tableView = UITableView()
-    private lazy var tableManager = TableManager(tableView: tableView)
+    private var tableManager: TableManager?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tableManager = TableManager(tableView: tableView)
         setupLayout()
     }
     
