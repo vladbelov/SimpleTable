@@ -8,86 +8,21 @@
 
 import UIKit
 
-class CellProvider: NSObject {
-    
-    private weak var tableView: UITableView?
-    
-    private var registeredCellIds = Set<String>()
-    
-    init(tableView: UITableView) {
-        self.tableView = tableView
-        super.init()
-    }
-    
-    func getCell(cellClass: AnyClass, reuseIdentifier: String) -> UITableViewCell? {
-        registerCellIfNeeded(cellClass: cellClass, reuseIdentifier: reuseIdentifier)
-        
-        let cell = tableView?.dequeueReusableCell(withIdentifier: reuseIdentifier)
-        return cell
-    }
-    
-    private func registerCellIfNeeded(cellClass: AnyClass, reuseIdentifier: String) {
-        if registeredCellIds.contains(reuseIdentifier) {
-            return
-        }
-        
-        if tableView?.dequeueReusableCell(withIdentifier: reuseIdentifier) != nil {
-            registeredCellIds.insert(reuseIdentifier)
-            return
-        }
-        
-        let bundle = Bundle(for: cellClass)
-
-        if bundle.path(forResource: reuseIdentifier, ofType: "nib") != nil {
-            tableView?.register(UINib(nibName: reuseIdentifier,
-                                      bundle: bundle),
-                                forCellReuseIdentifier: reuseIdentifier)
-        } else {
-            tableView?.register(cellClass, forCellReuseIdentifier: reuseIdentifier)
-        }
-    }
-    
-}
-
-public class TableSection: NSObject {
-    
-    public var items: [TableItemProtocol]
-    
-    public init(items: [TableItemProtocol] = []) {
-        self.items = items
-        super.init()
-    }
-    
-}
-
-public final class TableItem<CellClass: TableItemProtocol> {
-    
-    private var identifier: String {
-        return String(describing: CellClass.self)
-    }
-    
-}
-
-public protocol TableItemProtocol: UIView {
-    
-    var identifier: String { get set }
-    
-}
-
 public final class TableManager: NSObject {
     
     public lazy var sections: [TableSection] = [] {
         didSet {
-            
+            applyChanges()
         }
     }
     
-    private let defaultSection = TableSection()
+    private let cellProvider: CellProvider
     
     private weak var tableView: UITableView?
     
     public init(tableView: UITableView) {
         self.tableView = tableView
+        cellProvider = CellProvider(tableView: tableView)
         super.init()
         
         setupTableView()
@@ -102,7 +37,6 @@ public final class TableManager: NSObject {
     }
     
     private func applyChanges() {
-        
         tableView?.reloadData()
     }
     
@@ -111,18 +45,20 @@ public final class TableManager: NSObject {
 extension TableManager: UITableViewDataSource {
     
     public func numberOfSections(in tableView: UITableView) -> Int {
-        // TODO: Need to implement
-        return 0
+        return sections.count
     }
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // TODO: Need to implement
-        return 0
+        return sections[section].items.count
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // TODO: Need to implement
-        return UITableViewCell()
+        let item = sections[indexPath.section].items[indexPath.row]
+        guard let cell = cellProvider.getCell(cellType: item.cellType, reuseIdentifier: item.identifier) else {
+            return UITableViewCell()
+        }
+        
+        return cell
     }
 
     public func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -150,13 +86,13 @@ extension TableManager: UITableViewDataSource {
 extension TableManager: UITableViewDelegate {
     
     public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        // TODO: Need to implement
-        return UITableView.automaticDimension
+        let item = sections[indexPath.section].items[indexPath.row]
+        return item.fixedHeight ?? UITableView.automaticDimension
     }
     
     public func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        // TODO: Need to implement
-        return UITableView.automaticDimension
+        let item = sections[indexPath.section].items[indexPath.row]
+        return item.estimatedHeight ?? UITableView.automaticDimension
     }
     
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
