@@ -8,17 +8,27 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+final class ViewController: UIViewController {
+    
+    // MARK: - Properties
+    
+    private lazy var presenter: Presenter = {
+        let presenter = Presenter()
+        presenter.view = self
+        return presenter
+    }()
     
     private let tableView = UITableView()
-    private var tableManager: TableManager?
+    private lazy var tableManager = KeatManager(tableView: tableView)
+    
+    
+    // MARK: - Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableManager = TableManager(tableView: tableView)
         setupLayout()
-        displayTableItems()
+        updateTable()
     }
     
     private func setupLayout() {
@@ -33,30 +43,16 @@ class ViewController: UIViewController {
         ])
     }
     
-    private func displayTableItems() {
-        let section = TableSection()
-        let item1 = TableItem<Cell>()
-        section.items.append(item1)
-        tableManager?.sections = [section]
+    private func updateTable() {
+        var items = [KeatItemProtocol]()
+        presenter.viewModels.forEach { model in
+            let item = KeatItem<CellItem>(model: model)
+            items.append(item)
+        }
+        
+        tableManager.defaultSection.items = items
+        tableManager.applyChanges(animated: true)
     }
 
-}
-
-class Cell: UITableViewCell, TableItemView {
-    
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
-        contentView.backgroundColor = .green
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    func setup(with item: String) {
-        
-    }
-    
 }
 
